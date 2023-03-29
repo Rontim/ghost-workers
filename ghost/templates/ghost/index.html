@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghost Workers</title>
+</head>
+
+<body>
+    <form action="{% url 'ghost:ghost_worker'%}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Database</legend>
+            {{form }}
+            <input type="submit" value="Connect" />
+        </fieldset>
+    </form>
+</body>
+
+</html>
