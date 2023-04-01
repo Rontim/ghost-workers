@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ghost Workers</title>
-</head>
+  </head>
 
-<body></body>
-
+  <body>
+    <!-- ghost_workers.html -->
+    <h1>Ghost Workers</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ghost_worker in ghost_workers %}
+        <tr>
+          <td>{{ ghost_worker.id }}</td>
+          <td>{{ ghost_worker.name }}</td>
+          <td>{{ ghost_worker.email }}</td>
+          <td>{{ ghost_worker.department }}</td>
+          <td>{{ ghost_worker.position }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4">No ghost workers found.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
 </html>
