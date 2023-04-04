@@ -1,0 +1,215 @@
+/* Reset default styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Set background and font color */
+
+body {
+    background-color: #1f1f1f;
+    color: #d9d9d9;
+}
+
+
+/* Add mechanical texture to background */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("mechanical-texture.jpg");
+    opacity: 0.1;
+}
+
+
+/* Style header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #292929;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header a {
+    color: #d9d9d9;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+header a:hover {
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+label {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: #292929;
+    color: #d9d9d9;
+}
+
+input[type="submit"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #292929;
+    color: #d9d9d9;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffffff;
+    color: #292929;
+}
+
+
+/* Style error message */
+
+#error-message {
+    color: #ff0000;
+    margin-top: 1rem;
+}
+
+.ghost--list::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("mechanical-texture.jpg");
+    opacity: 0.1;
+}
+
+
+/* Style header */
+
+.ghost--list header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #292929;
+}
+
+.ghost--list header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ghost--list header a {
+    color: #d9d9d9;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.ghost--list header a:hover {
+    color: #ffffff;
+}
+
+table {
+    margin: 2rem auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th {
+    background-color: #292929;
+    color: #d9d9d9;
+    text-align: left;
+    padding: 0.5rem;
+}
+
+th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+td {
+    border: 1px solid #292929;
+    padding: 0.5rem;
+}
+
+
+/* Style pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.pagination li {
+    list-style: none;
+    margin: 0 0.5rem;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #d9d9d9;
+    display: inline-block;
+    padding: 0.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination li a:hover,
+.pagination li span.current {
+    background-color: #292929;
+    color: #ffffff;
+}
+
+
+/* Style logout button */
+
+#logout-btn {
+    margin: 1rem auto;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #292929;
+    color: #d9d9d9;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#logout-btn:hover {
+    background-color: #ffffff;
+    color: #292929;
+}

@@ -1,40 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Ghost Workers</title>
-  </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #1f1f1f;
+            color: #d9d9d9;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            margin: o;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        table {
+            margin: 2rem auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        
+        th {
+            background-color: #292929;
+            color: #d9d9d9;
+            text-align: left;
+            padding: 0.5rem;
+        }
+        
+        th:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        
+        th:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        
+        td {
+            border: 1px solid #292929;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
 
-  <body>
+<body class="ghost--list">
     <!-- ghost_workers.html -->
     <h1>Ghost Workers</h1>
     <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Department</th>
-          <th>Position</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for ghost_worker in ghost_workers %}
-        <tr>
-          <td>{{ ghost_worker.id }}</td>
-          <td>{{ ghost_worker.name }}</td>
-          <td>{{ ghost_worker.email }}</td>
-          <td>{{ ghost_worker.department }}</td>
-          <td>{{ ghost_worker.position }}</td>
-        </tr>
-        {% empty %}
-        <tr>
-          <td colspan="4">No ghost workers found.</td>
-        </tr>
-        {% endfor %}
-      </tbody>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ghost_worker in ghost_workers %}
+            <tr>
+                <td>{{ ghost_worker.id }}</td>
+                <td>{{ ghost_worker.name }}</td>
+                <td>{{ ghost_worker.email }}</td>
+                <td>{{ ghost_worker.department }}</td>
+                <td>{{ ghost_worker.position }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No ghost workers found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
-  </body>
+</body>
+
 </html>
