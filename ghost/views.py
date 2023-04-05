@@ -32,13 +32,19 @@ def db_connection(request):
 
 
 def ghost_worker(request, connection):
+    def hashable(val):
+        try:
+            hash(val)
+            return True
+        except TypeError:
+            return False
 
     ghost_workers = []
     with connection.cursor() as cursor:
         # ssconstraints = datetime.now() - timedelta(days=365)
         cursor.execute("""
-            SELECT employee.employee_id, employee.name, employee.email, employee.department, employee.position,
-            worklog.start_time AS start, attendance.date AS last_attendance_date
+            SELECT employee.employee_id, employee.emp_name, employee.email, employee.department, employee.position,
+            worklog.start_time AS start, attendance.attendance_date AS last_attendance_date
             FROM employee
             LEFT JOIN worklog ON employee.employee_id = worklog.employee_id
             LEFT JOIN attendance ON employee.employee_id = attendance.employee_id
@@ -58,5 +64,9 @@ def ghost_worker(request, connection):
             }
 
             ghost_workers.append(employee)
+            ghost_workers_set = set(frozenset((k, str(v)) for k, v in i.items() if hashable(v))
+                                    for i in ghost_workers)
+
+            ghost_workers = [dict(j) for j in ghost_workers_set]
 
     return render(request, 'ghost/ghost_workers.html', {'ghost_workers': ghost_workers})
